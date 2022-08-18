@@ -1,0 +1,49 @@
+#Entete{
+    font-family:Jacques Francois;
+    background-color: #264653;
+    margin-bottom:0
+      ;
+      padding-bottom: 0 ;
+    text-align: center;
+}
+
+
+
+#navbar-gen{
+   
+   
+        background-color: #2A9D8F;
+     
+     
+    }
+    #ulgeneral{
+       
+      
+      display: flex;
+      /* padding: 2; */
+      justify-content: space-around;
+      color: #eceaee;
+      
+    }
+h1 {
+    color: #eceaee;
+    text-align: center;
+
+}
+
+h2 {
+    color: #264653;
+    text-align: center;
+}
+#important{
+   
+    font-weight: bold;
+   
+ 
+}
+#Footer{
+    font-family:Jacques Francois;
+    background-color: #E9C46A;
+    text-align: center;
+}
+

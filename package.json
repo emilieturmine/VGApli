@@ -1,0 +1,30 @@
+{
+  "name": "v_g_apli",
+  "version": "1.0.0",
+  "source": [
+    "./src/index.js"
+  ],
+  "targets": {
+    "default": {
+      "distDir": "dist"
+    }
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.6.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
+    "sass": "^1.54.4"
+  },
+  "scripts": {
+    "clean": "rm -rf public/",
+    "start": "parcel src/index.html",
+    "build": "parcel build --no-source-maps",
+    "watch": "parcel watch --no-source-maps"
+  }
+}
