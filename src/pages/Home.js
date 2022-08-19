@@ -1,13 +1,17 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
 import { Navigation } from '../components/Navigation';
+import { Link } from 'react-router-dom';
 import { Entete } from '../components/Entete';
 import { Footer } from '../components/Footer';
+import { useState, useEffect } from 'react';
+
 const handleClick = () => {
     console.log("click sur categorie")
     props.onClick()
 }
+
+const { data, data1, data2, data3, data4, data5, data6 } = undefined || {};
+
 const Home = ({ data }) => {
 
     const { categories, fournisseurs } = data

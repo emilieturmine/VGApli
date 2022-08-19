@@ -24,8 +24,8 @@ const App = (props) => {
     useEffect(() => {
         fetchSync('https://127.0.0.1:8000/api/categories', 'get').then( (data) => setData1(data) );
         // fetchSync('https://127.0.0.1:8000/api/ss_categories', 'get').then( (data) => setData2(data) );
-        fetchSync('https://127.0.0.1:8000/api/produits', 'get').then( (data) => setData3(data) );
-        fetchSync('https://127.0.0.1:8000/api/produits/{id}', 'get').then( (data) => setData4(data) );
+        // fetchSync('https://127.0.0.1:8000/api/produits', 'get').then( (data) => setData3(data) );
+        // fetchSync('https://127.0.0.1:8000/api/produits/{id}', 'get').then( (data) => setData4(data) );
         fetchSync('https://127.0.0.1:8000/api/fournisseurs', 'get').then( (data) => setData5(data) );
         fetchSync('https://127.0.0.1:8000/api/actus', 'get').then( (data) => setData6(data) );
     }, [])
@@ -46,7 +46,18 @@ const App = (props) => {
         console.log(c);
         setData2(c.ssCategories)
     }
-
+    const handleClickSsCategorie = (s) => {
+        
+        fetchSync('https://127.0.0.1:8000/api/produits', 'get').then( (data) => setData3(data) );
+        console.log(s);
+        setData3(s.produits)
+    }
+    const handleClickProduits = (p) => {
+        
+        fetchSync('https://127.0.0.1:8000/api/produits/{id}', 'get').then( (data) => setData4(data) );
+        console.log(p);
+        setData4(p.details)
+    }
   
     console.log("render App...");
     return (
@@ -56,8 +67,8 @@ const App = (props) => {
 
             <Route path="/" element={<Home data={dataglobal}/>} />
                 <Route path="/Categories" element={<Categories data={data1} onClick={handleClickCategorie} />} />
-                <Route path="/Souscategories/:id" element={<Souscategories data={data2} />} />
-                <Route path="/Produits" element={<Produits data={data3}/>} />
+                <Route path="/Souscategories/:id" element={<Souscategories data={data2} onClick={handleClickSsCategorie} />} />
+                <Route path="/Produits/:id" element={<Produits data={data3}/>}onClick={handleClickProduits} />
                 <Route path="/Details" element={<Details data={data4}/>} />
                 <Route path="/Marques" element={<Marques data={data5}/>} />
                 <Route path="/Actus" element={<Actus data={data6}/>} />
