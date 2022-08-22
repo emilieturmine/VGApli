@@ -1,12 +1,29 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 import { Navigation } from '../components/Navigation';
 import { Link, useParams } from 'react-router-dom';
 import { Entete } from '../components/Entete';
 import { Footer } from '../components/Footer';
+import { fetchSync } from '../jsx/fetchSync';
 
 const Details = (props) => {
+
     const { id } = useParams();
+
+    const [prod, setProd] = useState({
+        libelle: "",
+        photo: "",
+    });
+
+    console.log(id);
+
+    useEffect(() => {
+        console.log("change id")
+        fetchSync('https://127.0.0.1:8000/api/produits/' + id, 'get').then((data) => setProd(data));
+
+    },
+        [id]);
+
     return (
         <div>
             <Entete />
@@ -16,26 +33,10 @@ const Details = (props) => {
 
                     <h2 className="col-sm-12 text-center mt-5">Fiche produit:  </h2>
                 </div>
-                <div className=" row">
-
-                    {
-                        props.data.map((Produits, index) =>
+                <h5 className="card-title text-dark mt-3">{prod.libelle}</h5>
+                <img src={"https://localhost:8000/imagesVG/propho/" + prod.photo} alt={prod.libelle} className="img-fluid" />
 
 
-
-                            <div className="col-6 col-sm-3 justify-content-space-between text-center mt-5 " >
-                                <div className="card-body text-dark">
-
-                                    <img src={"https://localhost:8000/imagesVG/propho/" + Produits.photo} alt={Produits.libelle} className="img-fluid" />
-                                    <h5 className="card-title text-dark mt-3">{Produits.libelle}</h5>
-                                </div>
-                            </div>
-
-                        )
-                    }
-
-
-                </div>
                 < Footer />
             </div>
         </div>

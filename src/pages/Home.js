@@ -7,16 +7,19 @@ import { useState, useEffect } from 'react';
 
 const handleClick = () => {
     console.log("click sur categorie")
-    props.onClick()
+    //props.onClick()
 }
 
-const { data, data1, data2, data3, data4, data5, data6 } = undefined || {};
+// const { data, data1, data2, data3, data4, data5, data6 } = undefined || {};
 
-const Home = ({ data }) => {
+const Home = (props) => {
 
-    const { categories, fournisseurs } = data
+    // const { categories, fournisseurs } = data
 
-    console.log(data);
+    // console.log("------------------------------------")
+    // console.log(props.data);
+    // console.log("------------------------------------")
+
     return (
         <div>
             <Entete />
@@ -40,7 +43,7 @@ const Home = ({ data }) => {
                 </div>
                 <div id='categories' className=" row">
                     {
-                        categories.map((categorie, index) =>
+                        props.data.categories.map((categorie, index) =>
 
                             <div key={index} className="col-6 col-sm-3 justify-content-space-between text-center mt-5 " onClick={handleClick}>
                                 <div className="card-body text-dark">
@@ -69,7 +72,7 @@ const Home = ({ data }) => {
 
                 <div className=" row ">
                     {
-                        fournisseurs.map((marque, index) =>
+                        props.data.fournisseurs.map((marque, index) =>
 
                             <div key={index} className="col-6 col-sm-3 justify-content-space-between text-center mt-5 " onClick={handleClick}>
                                 <div className="card-body text-dark">

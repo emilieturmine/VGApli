@@ -27,39 +27,38 @@ const App = (props) => {
         // fetchSync('https://127.0.0.1:8000/api/produits', 'get').then( (data) => setData3(data) );
         // fetchSync('https://127.0.0.1:8000/api/produits/{id}', 'get').then( (data) => setData4(data) );
         fetchSync('https://127.0.0.1:8000/api/fournisseurs', 'get').then( (data) => setData5(data) );
-        fetchSync('https://127.0.0.1:8000/api/actus', 'get').then( (data) => setData6(data) );
+        // fetchSync('https://127.0.0.1:8000/api/actus', 'get').then( (data) => setData6(data) );
     }, [])
 
 
     const dataglobal = {
         categories : data1,
-        sscategories:data2,
-        produits:data3,
-        details:data4,
-        fournisseurs:data5,
-        actus:data6
+        fournisseurs: data5,
     }
 
     const handleClickCategorie = (c) => {
         
-        fetchSync('https://127.0.0.1:8000/api/ss_categories', 'get').then( (data) => setData2(data) );
-        console.log(c);
+        //fetchSync('https://127.0.0.1:8000/api/ss_categories', 'get').then( (data) => setData2(data) );
+        // console.log(c);
         setData2(c.ssCategories)
     }
+
     const handleClickSsCategorie = (s) => {
         
-        fetchSync('https://127.0.0.1:8000/api/produits', 'get').then( (data) => setData3(data) );
-        console.log(s);
+        // fetchSync('https://127.0.0.1:8000/api/produits', 'get').then( (data) => setData3(data) );
+        // console.log(s);
         setData3(s.produits)
     }
-    const handleClickProduits = (p) => {
+
+    const handleClickProduit = (p) => {
         
-        fetchSync('https://127.0.0.1:8000/api/produits/{id}', 'get').then( (data) => setData4(data) );
+        // fetchSync('https://127.0.0.1:8000/api/produits/' + p.id, 'get').then( (data) => setData4(data) );
         console.log(p);
-        setData4(p.details)
+        // return false;
+        //setData4(p)
     }
   
-    console.log("render App...");
+    // console.log("render App...");
     return (
         <BrowserRouter>
        
@@ -68,12 +67,12 @@ const App = (props) => {
             <Route path="/" element={<Home data={dataglobal}/>} />
                 <Route path="/Categories" element={<Categories data={data1} onClick={handleClickCategorie} />} />
                 <Route path="/Souscategories/:id" element={<Souscategories data={data2} onClick={handleClickSsCategorie} />} />
-                <Route path="/Produits/:id" element={<Produits data={data3}/>}onClick={handleClickProduits} />
-                <Route path="/Details" element={<Details data={data4}/>} />
+                <Route path="/Produits/:id" element={<Produits data={data3}/>} onClick={handleClickProduit} />
+                <Route path="/Details/:id" element={<Details data={data4}/>} />
                 <Route path="/Marques" element={<Marques data={data5}/>} />
                 <Route path="/Actus" element={<Actus data={data6}/>} />
              {/* path="*" fonctionne si jamais l'url ne correspond à rien de  declaré au dessus */}
-               <Route path="*" element={<Home/>}/>
+               <Route path="*" element={<Home />}/>
 
             </Routes>
         </BrowserRouter>

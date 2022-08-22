@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigation } from '../components/Navigation';
 import { Link, useParams } from 'react-router-dom';
+import { Categories } from '../pages/Categories';
 
 import { Entete } from '../components/Entete';
 import { Footer } from '../components/Footer';
