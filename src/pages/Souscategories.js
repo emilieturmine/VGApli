@@ -42,9 +42,9 @@ const Souscategories = (props) => {
           }
 
 
-        </div>
-        < Footer />
-      </div>
+        </div>  </div>
+      < Footer />
+
     </div>
   );
 };
