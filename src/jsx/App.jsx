@@ -66,13 +66,13 @@ const App = (props) => {
 
             <Route path="/" element={<Home data={dataglobal}/>} />
                 <Route path="/Categories" element={<Categories data={data1} onClick={handleClickCategorie} />} />
-                <Route path="/Souscategories/:id" element={<Souscategories data={data2} onClick={handleClickSsCategorie} />} />
-                <Route path="/Produits/:id" element={<Produits data={data3}/>} onClick={handleClickProduit} />
-                <Route path="/Details/:id" element={<Details data={data4}/>} />
+                    <Route path="/Souscategories/:id" element={<Souscategories data={data2} onClick={handleClickSsCategorie} />} />
+                        <Route path="/Produits/:id" element={<Produits data={data3}/>} onClick={handleClickProduit} />
+                            <Route path="/Details/:id" element={<Details data={data4}/>} />
                 <Route path="/Marques" element={<Marques data={data5}/>} />
                 <Route path="/Actus" element={<Actus data={data6}/>} />
              {/* path="*" fonctionne si jamais l'url ne correspond à rien de  declaré au dessus */}
-               <Route path="*" element={<Home />}/>
+                <Route path="*" element={<Home />}/>
 
             </Routes>
         </BrowserRouter>
